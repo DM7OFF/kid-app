@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JoyLearn - Carte d'Apprentissage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Lexend:wght@700&amp;family=Quicksand:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .wiggle-hover:hover {
+            animation: wiggle 0.5s ease-in-out infinite;
+        }
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .tactile-button {
+            border-bottom-width: 6px;
+            transition: all 0.1s ease-in-out;
+        }
+        .tactile-button:active {
+            border-bottom-width: 0px;
+            transform: translateY(6px);
+        }
+        /* Dashboard/Map Path styling */
+        .svg-path {
+            stroke-dasharray: 20;
+            animation: dash 5s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -40; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-lg">
+<!-- TopAppBar -->
+<header class="bg-background flex justify-between items-center px-margin-mobile h-touch-target-min w-full max-w-screen-xl mx-auto docked full-width top-0 sticky z-40">
+<div class="font-display-hero text-headline-lg-mobile text-primary font-extrabold tracking-tighter">
+            JoyLearn
+        </div>
+<div class="flex items-center gap-4">
+<button aria-label="Stars" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="stars" style="font-size: 32px;">stars</span>
+</button>
+<button aria-label="Settings" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-on-surface-variant hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings" style="font-size: 32px;">settings</span>
+</button>
+<img alt="Child profile avatar" class="w-12 h-12 rounded-full border-2 border-primary object-cover" data-alt="A vibrant, cartoon-style avatar of a smiling child with colorful messy hair, wearing a bright yellow t-shirt. The illustration should be simple, joyful, and designed for a children's educational app. Soft pastel background, high contrast, clean vector art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7r7-ndOiMkLDMQumjWbYlVveXaUnHJP7UN9d_tW4HFxbbRAi7m8eGp9K9zCzfeM8QHqErW2LX1gGTknX2kCPL92AjrOd9-pWoUC_uR7630pVye-iHSUE_DThaIZO_ijaCvyqFpicj33sTBDSP6kAwR5Wd_l4vjo1DOw_ztNHUcS-0-JBaH69S4xXUElq4Qei2Siic0caKNIAR9l5s3k7FV9rhJqbeB9jvYg1AdzugsWvnRIxE3T1P"/>
+</div>
+</header>
+<!-- Main Content Canvas (The Map) -->
+<main class="flex-grow relative overflow-hidden pb-32">
+<!-- Background Map Image -->
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A whimsical, colorful 3D isometric map for a children's educational game. The map features a lush green forest area on the left, a bright tropical island in the center with sandy beaches, and a vibrant blue ocean filled with friendly sea creatures on the right. Soft, bouncy lighting, tactile toy-like aesthetic, bright pastel colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC9BhKtou8E0jm3pJiUW2PCq0bnyUSIPRFPwJIuX9Kkpw-DLJw7wLCEFtIbF0pjabeJ22AT7OLWaZcNDr00xPSxjcaD9vE7cyrsDgY4u_8UZPFaT406NshwA-GMGRqNDl27G-4WlXFkQRCZj_UxZQ76WfdP4XJYkYusZ_YLF_TCbdxnjOdWBCI8q6c1wcdXMg1dzUBiQ38nurghTwKSJCqZojbbHpVWsMNcBnh70vH5zQRoaSeTYlcf')"></div>
+</div>
+<!-- Path connecting levels -->
+<svg class="absolute inset-0 w-full h-full z-10 pointer-events-none" preserveaspectratio="none" viewbox="0 0 1000 800">
+<path class="svg-path" d="M 200,600 Q 400,300 500,400 T 800,200" fill="transparent" stroke="#00658d" stroke-dasharray="20 20" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<div class="relative z-20 max-w-screen-xl mx-auto h-full min-h-[600px] p-margin-mobile">
+<!-- Character Guide -->
+<div class="absolute top-10 left-10 float-animation w-32 h-32 bg-surface rounded-full shadow-lg flex items-center justify-center border-4 border-secondary-container">
+<img alt="Guide Character" class="w-24 h-24 object-cover rounded-full" data-alt="A cute 3D rendered mascot character resembling a small, friendly owl wearing large round glasses and a tiny adventurer's hat. The owl is smiling brightly and pointing a wing downwards towards the map. Colorful, tactile, toy-like appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS99AgqkJeE3R6qAQR07DnTLItN8xtX6q7mBobc9R1Vs26Gop8Rm-xWEgjvXf7bqWRzPQ0BZ7RrdDK0iVeaMqKE16ZrUhow8o5vEcc5h1fNOgXIUdqFALK76E0xQ8MZA_M8ix8e2tih0OOuwD5YFAEZs_PYU0km_9NtcqkXAP4Zwpuln8ULCdWi1o7hcos9kB-2jd2nfBQ1GdVKWpg5YgWpd48Z5v7sUUvmuGTTvPyWd5AK85_BORl"/>
+</div>
+<!-- Level 1: Island of Letters -->
+<button class="absolute bottom-20 left-[10%] group focus:outline-none">
+<div class="relative tactile-button border-primary-fixed-dim bg-primary rounded-2xl p-6 shadow-md flex flex-col items-center justify-center w-48 h-48 wiggle-hover">
+<span class="material-symbols-outlined text-white mb-2" data-icon="abc" style="font-size: 64px;">abc</span>
+<span class="font-label-bold text-label-bold text-white text-center">Letter Island</span>
+<!-- Progress Badge -->
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-secondary-container rounded-full border-4 border-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+</button>
+<!-- Level 2: Forest of Numbers -->
+<button class="absolute top-[40%] left-[40%] group focus:outline-none">
+<div class="relative tactile-button border-on-tertiary-fixed-variant bg-tertiary-container rounded-2xl p-6 shadow-md flex flex-col items-center justify-center w-48 h-48 wiggle-hover">
+<span class="material-symbols-outlined text-on-tertiary-container mb-2" data-icon="123" style="font-size: 64px;">123</span>
+<span class="font-label-bold text-label-bold text-on-tertiary-container text-center">Number Forest</span>
+<!-- Lock Overlay (Not completed) -->
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-surface-variant rounded-full border-4 border-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+</div>
+</button>
+<!-- Level 3: Ocean of Colors -->
+<button class="absolute top-10 right-[15%] group focus:outline-none opacity-80">
+<div class="relative tactile-button border-outline-variant bg-surface-container-high rounded-2xl p-6 shadow-md flex flex-col items-center justify-center w-48 h-48 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="palette" style="font-size: 64px;">palette</span>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Color Ocean</span>
+</div>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container-lowest docked full-width rounded-t-lg shadow-md md:hidden">
+<!-- Tab 1: Accueil (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-size: 32px;">home</span>
+<span class="font-label-bold text-label-bold">Accueil</span>
+</a>
+<!-- Tab 2: Apprendre (Active - matches learning map intent) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-unit border-b-4 border-secondary translate-y-1 active:border-b-0 transition-all duration-75 flex-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="school" style="font-size: 32px;">school</span>
+<span class="font-label-bold text-label-bold">Apprendre</span>
+</a>
+<!-- Tab 3: Jouer (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="videogame_asset" style="font-size: 32px;">videogame_asset</span>
+<span class="font-label-bold text-label-bold">Jouer</span>
+</a>
+<!-- Tab 4: Récompenses (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="military_tech" style="font-size: 32px;">military_tech</span>
+<span class="font-label-bold text-label-bold">Récompenses</span>
+</a>
+<!-- Tab 5: Profil (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="face" style="font-size: 32px;">face</span>
+<span class="font-label-bold text-label-bold">Profil</span>
+</a>
+</nav>
+</body></html>

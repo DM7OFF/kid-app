@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rewards - JoyLearn</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config from Guidelines -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Wiggle Animation for Primary Button */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        /* Sparkle Animation for Progress */
+        @keyframes sparkle-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+        .animate-sparkle {
+            animation: sparkle-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Tactile Button Press */
+        .tactile-press:active {
+            transform: translateY(4px);
+            border-bottom-width: 0px !important;
+            margin-bottom: 4px;
+        }
+        
+        /* Floating Badge Animation */
+        @keyframes float-badge {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .badge-float {
+            animation: float-badge 3s ease-in-out infinite;
+        }
+        .badge-float-delayed {
+            animation: float-badge 3.5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        .badge-float-delayed-2 {
+            animation: float-badge 3.2s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-32">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex justify-between items-center px-margin-mobile h-touch-target-min w-full max-w-screen-xl mx-auto bg-background flat no shadows">
+<div class="font-display-hero text-primary">JoyLearn</div>
+<div class="flex items-center gap-unit">
+<button aria-label="Stars" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="stars">stars</span>
+</button>
+<button aria-label="Settings" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="settings">settings</span>
+</button>
+<div class="w-touch-target-min h-touch-target-min rounded-full bg-surface-container-high border-4 border-primary-container overflow-hidden hover:scale-105 transition-transform cursor-pointer shadow-md">
+<img alt="Child profile avatar" class="w-full h-full object-cover" data-alt="A brightly lit, stylized 3D avatar of a smiling child with colorful clothing, designed in a playful, modern cartoon aesthetic suitable for a kids learning app. The lighting is soft and joyful, creating a friendly and inviting mood. Solid pastel background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIG2twlaVlSrq1u28tthxbUQ-15h4dplNCq14nJUlBS0s9Hm0-RXQNX9426CHKYR00u-vYTuxwl4mYYTmysu_gwPFtn5VIOjdfGWOsI3R1xFCl38W-U2mBw2WSppMleosEnuiqehH01WhmqH2RqSTI5OHu26mJ52BJiVAixcxrQypqy4vs607NjEgnZiZqpsJuvhwtKdH5LtIwxHkkSO_0er12V8M_4asN6pxiHEccp5sv6NxOY86x"/>
+</div>
+</div>
+</header>
+<!-- TopAppBar (Mobile Fallback for Title) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile py-4 bg-background w-full">
+<div class="font-headline-lg-mobile text-primary font-bold">Rewards</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high border-4 border-primary-container overflow-hidden shadow-md">
+<img alt="Child profile avatar" class="w-full h-full object-cover" data-alt="A brightly lit, stylized 3D avatar of a smiling child with colorful clothing, designed in a playful, modern cartoon aesthetic suitable for a kids learning app. The lighting is soft and joyful, creating a friendly and inviting mood. Solid pastel background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdQWtHd-wy6jTihwNIGSA3uMUHspjt7__QHpD_1ZzmIpiu3t8JPyVmziMUFWag5muafC9qyxboZR41R0P_EpwHI0vMAVc_Rt6E4Ivmfaqz6iyM7AqCmDXffV5IM3sU7X501rwMgaNEKNuZRRNuCZi-EFm86wrkWkjiMgc_HV10Gf8I59-blcm17ZJ9zzJG8wQXsIDBDG_vueg_Nmbgs3w1mK5ul77YedwEGpgcYtI87xav2P7hTl3K"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-screen-xl mx-auto px-margin-mobile md:px-margin-tablet mt-8 flex flex-col gap-stack-gap">
+<!-- Header & Progress Section -->
+<section class="flex flex-col gap-unit items-center text-center">
+<h1 class="font-display-hero text-headline-lg md:text-display-hero text-primary font-extrabold mb-2">Your Treasures!</h1>
+<!-- Progress Bar -->
+<div class="w-full max-w-2xl bg-surface-container-high rounded-full h-12 p-1 border-4 border-outline-variant shadow-inner relative mt-4">
+<div class="bg-gradient-to-r from-secondary-container to-secondary-fixed h-full rounded-full w-3/4 relative border-b-4 border-secondary-container shadow-sm">
+<!-- Sparkle Leading Edge -->
+<div class="absolute -right-4 -top-3 animate-sparkle">
+<span class="material-symbols-outlined text-4xl text-primary drop-shadow-md" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+</div>
+<p class="font-label-bold text-label-bold text-on-surface-variant mt-2 flex items-center justify-center gap-2">
+                Next badge in <strong class="text-secondary font-extrabold text-2xl">50</strong> <span class="material-symbols-outlined text-secondary-container drop-shadow-sm" data-icon="star" data-weight="fill">star</span>
+</p>
+</section>
+<!-- Main Rewards Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mt-8">
+<!-- Badges Gagnés (Featured Span) -->
+<section class="col-span-1 md:col-span-8 flex flex-col gap-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl" data-icon="military_tech">military_tech</span>
+                    Badges earned
+                </h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-unit bg-surface-container-low p-6 rounded-xl border-4 border-surface-container-high shadow-lg">
+<!-- Badge 1 (Image Placeholder) -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-8 border-surface-container-highest tactile-press cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 relative badge-float">
+<img alt="Colorful 3D Badge" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVmWpaMhRQGxger9yvnxe00Tz8vAcdlYE0LSybACZ-08FIXEF-YG_KUQk7jn-VyJ-oTB52cJw8j7vGYT2raXMTrD-6wwFhXvcF9eRgTOBLmC-1YqBSZ1YW6e0T6faNPHuGfA6Fz0el-iZbVCYGH6fe6FrlbrYazRolO83ozfVHdo6zzcTJeC9hL0_ExoB2dEq_xhjzEIfsNhEwzZmu08YhutgRvyGCeGpxMwVvoFaQEaLdjeIL9eb4"/>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface text-center">Artist</span>
+</div>
+<!-- Badge 2 (Generated Image) -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-8 border-surface-container-highest tactile-press cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 relative badge-float-delayed">
+<img alt="Alphabet Badge" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform" data-alt="A highly polished 3D render of a colorful, squishy, playful 'ABC' letter block badge. The style is modern, glossy, and gamified with bright pastel colors. Soft, studio lighting creates a premium, rewarding look against a transparent or solid white background. It feels tactile and collectible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGkcjaKQylZOSkq7FDL1OJh1N6iwPmd-vXxLPAanLCtnFKQcQHJvLKAlwSfqStvdRULBZl38OFHKPSVOotA476UaF-ncA8yYEIQPuKLbg-OqeViK2KPhLqBmIA-8U0fopp5e43h_-frO864Z_E33Cpqd8K8YCdBzmHdJR-MI_eE0OutEoIP19tUR8kkcZOT1ULUsYbepjdCV5f4DzmMNDY_iaJzM6Ztvm_6aUoYtUqAnoqaymhNeJh"/>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface text-center">The Alphabet</span>
+</div>
+<!-- Badge 3 (Generated Image) -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-8 border-surface-container-highest tactile-press cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 relative badge-float-delayed-2">
+<img alt="Animal Badge" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform" data-alt="A highly polished 3D render of a cute, stylized puppy dog face badge. The style is modern, squishy, and gamified with warm browns and playful proportions. Soft, studio lighting creates a premium, rewarding look against a transparent or solid white background. It feels tactile and collectible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgG_tzOOJArsKUnYUPL610WhTvyD3DzWwHuXl7l3fdoUL1ll5kUUsTspJiqobwbr1EHE1CIG7frvb5Vn_lhfNsH5o6SR3YaYQvlWx-rphYyQEAUTM5Je6usJzhUzZn97oiDR0hOVUIelCtC2drLJ6VjJJk6RzuS9Ujc5_KCJR2k_SUl2i1KwP7Y4kGRd0Qo04os5Z30AoD7TRAWVBpGhfSOzF1tznNY-1C_dlQL8jHSukrF7k8WcG5"/>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface text-center">Animals</span>
+</div>
+<!-- Badge 4 (Generated Image) -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-8 border-surface-container-highest tactile-press cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-24 h-24 relative badge-float">
+<img alt="Puzzle Badge" class="w-full h-full object-contain drop-shadow-md group-hover:scale-110 transition-transform" data-alt="A highly polished 3D render of a colorful puzzle piece badge. The style is modern, squishy, and gamified with bright, contrasting pastel colors. Soft, studio lighting creates a premium, rewarding look against a transparent or solid white background. It feels tactile and collectible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn-s01RX2UoL6zwEXhNS4NAWmNVm7uXREN32y-sI8ZNPmzD1Nugf2h7-NCfdDZE9To-A_O2M7rJNLaMuXI2d-wIX5Ol8MYogEaojJjmcz_49qM_aauZDKeYBqL-85n8JkO0WD7hHRUKcPjQMzGekqazdlX3cNwnKh20l2VGIovGI3NhUJHfBXS1JWYNBWZ4wYTpM_vf-7e7DQr9C7fXYJJ7uEp1KrRvqwMimtrXDXuLikihdpNnzrj"/>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface text-center">Puzzles</span>
+</div>
+<!-- Badge 5 (Locked) -->
+<div class="bg-surface-container rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-4 border-surface-variant opacity-70">
+<div class="w-24 h-24 bg-surface-dim rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Mystery</span>
+</div>
+<!-- Badge 6 (Locked) -->
+<div class="bg-surface-container rounded-lg p-4 flex flex-col items-center justify-center gap-3 border-b-4 border-surface-variant opacity-70">
+<div class="w-24 h-24 bg-surface-dim rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-on-surface-variant" data-icon="lock">lock</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface-variant text-center">Mystery</span>
+</div>
+</div>
+</section>
+<!-- Collection d'autocollants (Side Span) -->
+<section class="col-span-1 md:col-span-4 flex flex-col gap-4">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-tertiary font-bold flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+                    Sticker Collection
+                </h2>
+<div class="bg-tertiary-fixed rounded-xl p-6 flex flex-col items-center justify-center gap-6 border-b-8 border-tertiary-fixed-dim shadow-md h-full min-h-[300px]">
+<div class="w-32 h-32 relative animate-wiggle">
+<!-- Simulated Sticker Book Stack -->
+<div class="absolute inset-0 bg-surface-container-lowest rounded-lg border-2 border-outline-variant transform rotate-6"></div>
+<div class="absolute inset-0 bg-surface-container-highest rounded-lg border-2 border-outline-variant transform -rotate-3"></div>
+<div class="absolute inset-0 bg-surface rounded-lg border-4 border-primary flex items-center justify-center overflow-hidden shadow-inner">
+<span class="material-symbols-outlined text-6xl text-primary" data-icon="menu_book">menu_book</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-8 py-4 rounded-xl border-b-8 border-on-primary-container tactile-press shadow-sm w-full">
+                        Open the book
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile & Tablet) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container-lowest border-t-4 border-surface-container-high rounded-t-lg shadow-md">
+<!-- Tab 1: Accueil (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-full h-16">
+<span class="material-symbols-outlined text-3xl" data-icon="home">home</span>
+<span class="font-label-bold text-[12px] mt-1">Home</span>
+</button>
+<!-- Tab 2: Apprendre (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-full h-16">
+<span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+<span class="font-label-bold text-[12px] mt-1">Learn</span>
+</button>
+<!-- Tab 3: Jouer (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-full h-16">
+<span class="material-symbols-outlined text-3xl" data-icon="videogame_asset">videogame_asset</span>
+<span class="font-label-bold text-[12px] mt-1">Play</span>
+</button>
+<!-- Tab 4: Récompenses (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-unit border-b-4 border-secondary hover:bg-surface-container-high transition-colors w-full h-16 -translate-y-1">
+<span class="material-symbols-outlined text-3xl" data-icon="military_tech" data-weight="fill">military_tech</span>
+<span class="font-label-bold text-[12px] mt-1">Rewards</span>
+</button>
+<!-- Tab 5: Profil (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-full h-16">
+<span class="material-symbols-outlined text-3xl" data-icon="face">face</span>
+<span class="font-label-bold text-[12px] mt-1">Profile</span>
+</button>
+</nav>
+<!-- Overlay Confetti Effect (Atmospheric JS) -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Simple visual effect to reinforce gamified feel without full particle system
+            const sparkleElements = document.querySelectorAll('.badge-float, .badge-float-delayed, .badge-float-delayed-2');
+            
+            sparkleElements.forEach(el => {
+                el.addEventListener('click', function() {
+                    this.classList.remove('badge-float', 'badge-float-delayed', 'badge-float-delayed-2');
+                    this.style.transform = 'scale(1.2) rotate(5deg)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                        this.classList.add('badge-float'); // reset animation
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body></html>

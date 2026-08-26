@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JoyLearn - Les Lettres</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700&amp;family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .squishy-btn {
+            border-bottom-width: 6px;
+            transition: all 0.1s ease;
+        }
+        .squishy-btn:active {
+            border-bottom-width: 0px;
+            transform: translateY(6px);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fdd029;
+            opacity: 0;
+        }
+        .bg-sky-gradient {
+            background: linear-gradient(to bottom, #c6e7ff 0%, #ffffff 100%);
+        }
+    </style>
+</head>
+<body class="bg-sky-gradient min-h-screen text-on-background overflow-hidden relative">
+<!-- Confetti Background Layer -->
+<div class="absolute inset-0 pointer-events-none opacity-50 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2Y1ZjNmMyIvPjwvc3ZnPg==')]"></div>
+<!-- Top Navigation & Progress (Task-Focused layout, no global nav shell) -->
+<header class="w-full flex items-center justify-between px-margin-mobile md:px-margin-tablet py-gutter relative z-20">
+<button aria-label="Retour" class="w-touch-target-min h-touch-target-min bg-surface-container-lowest rounded-full shadow-sm flex items-center justify-center text-primary squishy-btn border-outline-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+</button>
+<div class="flex-1 mx-gutter max-w-md">
+<div class="h-6 bg-surface-container-highest rounded-full overflow-hidden border-2 border-outline-variant">
+<div class="h-full bg-secondary-container w-1/4 rounded-full relative">
+<span class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<div class="w-touch-target-min h-touch-target-min"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-screen-xl mx-auto h-[calc(100vh-120px)] flex flex-col md:flex-row items-center justify-center px-margin-mobile md:px-margin-tablet gap-stack-gap relative z-10">
+<!-- Character Column -->
+<div class="flex-shrink-0 relative w-64 h-64 md:w-96 md:h-96 md:order-2 animate-float">
+<img alt="Animated singer character dancing and pointing" class="w-full h-full object-contain filter drop-shadow-xl" src="https://lh3.googleusercontent.com/aida/AEtjO1Xi_MHV-nkpi0wfXvGx4pFnz-DVsKq4YP-mICIRLCD5WGAUlB6ixaFr8_jqH0woAS7KYZ3B2pSnqrBUeZmC2XNpvsfqdpwGYwOLe21ESZSbtVYuiR5t348Ji67eH7aEGml3bdPecc0LDNg8cWWrN9GMZhbAjBHvnqFfiJzkezy5TWq9-7rmVyrNMIo6q5bpriUMgWiiYLFXLMR2ePnUjMgUCKMHC0HDNAJsi8BcFiwH94ZfIJ02Nec0Kg"/>
+</div>
+<!-- Activity Column -->
+<div class="flex-1 flex flex-col items-center justify-center md:order-1 text-center bg-surface-container-lowest/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border-4 border-surface-container-lowest">
+<!-- The Big Letter -->
+<div class="font-display-hero text-[150px] md:text-[250px] leading-none text-primary mb-4 drop-shadow-md">
+                A
+            </div>
+<!-- Word Association -->
+<div class="bg-surface-container-lowest px-8 py-4 rounded-full shadow-sm border-2 border-primary-fixed mb-12">
+<p class="font-headline-lg text-on-primary-container">
+                    A is for Airplane ✈️
+                </p>
+</div>
+<!-- Interaction Buttons -->
+<div class="flex flex-col sm:flex-row gap-gutter w-full max-w-lg">
+<button class="flex-1 flex items-center justify-center gap-4 bg-primary text-on-primary font-label-bold text-label-bold py-6 px-8 rounded-xl squishy-btn border-on-primary-fixed-variant shadow-md hover:bg-surface-tint">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+                    Listen
+                </button>
+<button class="flex-1 flex items-center justify-center gap-4 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-6 px-8 rounded-xl squishy-btn border-secondary shadow-md hover:bg-secondary-fixed">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">mic</span>
+                    Your turn!
+                </button>
+</div>
+</div>
+</main>
+<script>
+        // Simple confetti effect for interaction
+        function createConfetti() {
+            const colors = ['#fdd029', '#47c1ff', '#ff9d78'];
+            for(let i=0; i<30; i++) {
+                const conf = document.createElement('div');
+                conf.classList.add('confetti', 'rounded-full');
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = -10 + 'px';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.opacity = 1;
+                document.body.appendChild(conf);
+                
+                const fallDuration = Math.random() * 2 + 1;
+                conf.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(100vh) rotate(${Math.random()*360}deg)`, opacity: 0 }
+                ], {
+                    duration: fallDuration * 1000,
+                    easing: 'linear'
+                }).onfinish = () => conf.remove();
+            }
+        }
+
+        // Add interaction to buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn.textContent.includes('Your turn!')) {
+                    createConfetti();
+                }
+            });
+        });
+    </script>
+</body></html>

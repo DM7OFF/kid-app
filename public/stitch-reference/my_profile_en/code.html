@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JoyLearn - Child Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;600&amp;family=Lexend:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .squishy-btn {
+            border-bottom: 6px solid;
+            transition: all 0.1s ease-in-out;
+        }
+        .squishy-btn:active {
+            transform: translateY(6px);
+            border-bottom-width: 0px;
+            margin-bottom: 6px;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar (Web & Mobile Hybrid) -->
+<header class="bg-background dark:bg-background docked full-width top-0 flex justify-between items-center px-margin-mobile h-touch-target-min w-full max-w-screen-xl mx-auto sticky z-40">
+<div class="font-display-hero text-headline-lg-mobile text-primary dark:text-primary-fixed-dim">JoyLearn</div>
+<!-- Web Navigation (Hidden on Mobile) -->
+<nav class="hidden md:flex gap-4">
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform flex items-center gap-2 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+            </a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform flex items-center gap-2 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span> Learn
+            </a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform flex items-center gap-2 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="videogame_asset">videogame_asset</span> Play
+            </a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform flex items-center gap-2 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span> Rewards
+            </a>
+<a class="text-primary font-bold font-label-bold text-label-bold flex items-center gap-2 p-2 border-b-4 border-primary" href="#">
+<span class="material-symbols-outlined" data-icon="face" data-weight="fill" style="font-variation-settings: 'FILL' 1;">face</span> Profile
+            </a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-105 transition-transform w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-3xl" data-icon="stars">stars</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:scale-105 transition-transform w-touch-target-min h-touch-target-min flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-3xl" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-screen-xl mx-auto px-margin-mobile md:px-margin-tablet py-stack-gap flex flex-col md:flex-row gap-stack-gap">
+<!-- Left Column: Avatar & Personalization -->
+<div class="w-full md:w-1/3 flex flex-col gap-unit">
+<!-- Avatar Card -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-gap flex flex-col items-center card-shadow border-4 border-surface-container">
+<div class="relative w-48 h-48 mb-6">
+<div class="absolute inset-0 bg-secondary-container rounded-full animate-pulse opacity-50"></div>
+<img class="w-full h-full object-cover rounded-full border-8 border-surface-container-lowest relative z-10 shadow-lg" data-alt="A highly detailed 3D render of a cute, stylized child avatar named Léo. He has big expressive eyes, messy brown hair, and is wearing a bright blue superhero cape over a yellow t-shirt. The style is reminiscent of modern animated movies, with soft, vibrant lighting and a clean, solid color background. The rendering is extremely high quality, playful, and perfect for a high-end educational app for kids." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBruBjcreTEk6PhPCMnzbzNEBSDveS4T48LtZRMt0h8mWhJ_c9tx68U4Bp8Su0zJ1kJBDgLkYOW6A7ZGXMtffZOoPlH6Tohu4t_Kqj1qIMzK34KR73_eTG3l1JJQhLsNx7KsM_NQjvIxAIMYK0ujn6LwauyfxbF8tIjTU7HD6J44srx25uaaJGilVnSAT9JnidvIljbdqNrH0_hrxIwArBVPp1PGbZ9HJTF3udmesZ8AJhuA1BKAu9o"/>
+<button class="absolute bottom-0 right-0 w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center border-4 border-surface-container-lowest z-20 hover:scale-110 transition-transform shadow-md">
+<span class="material-symbols-outlined text-3xl" data-icon="edit">edit</span>
+</button>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface mb-2">Léo</h1>
+<div class="bg-tertiary-container text-on-tertiary-container font-label-bold text-label-bold px-6 py-2 rounded-full border-4 border-tertiary">
+                    Level 5
+                </div>
+</div>
+<!-- Personalization Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 card-shadow border-4 border-surface-container">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile mb-4 text-on-surface">Customize</h2>
+<div class="grid grid-cols-2 gap-4">
+<button class="bg-surface-container-low hover:bg-surface-container-high rounded-lg p-4 flex flex-col items-center justify-center gap-2 border-4 border-transparent hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="apparel">apparel</span>
+<span class="font-label-bold text-label-bold">Outfits</span>
+</button>
+<button class="bg-surface-container-low hover:bg-surface-container-high rounded-lg p-4 flex flex-col items-center justify-center gap-2 border-4 border-transparent hover:border-primary transition-all">
+<span class="material-symbols-outlined text-4xl text-tertiary" data-icon="palette">palette</span>
+<span class="font-label-bold text-label-bold">Colors</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Stats & Progress -->
+<div class="w-full md:w-2/3 flex flex-col gap-stack-gap">
+<!-- Stats Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-unit">
+<!-- Streak Stat -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed rounded-xl p-6 flex items-center gap-6 border-b-[8px] border-tertiary card-shadow">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-inner">
+<span class="text-5xl">🔥</span>
+</div>
+<div>
+<div class="font-display-hero text-headline-lg mb-1">7 Day</div>
+<div class="font-label-bold text-label-bold opacity-80">streak!</div>
+</div>
+</div>
+<!-- Stars Stat -->
+<div class="bg-secondary-fixed text-on-secondary-fixed rounded-xl p-6 flex items-center gap-6 border-b-[8px] border-secondary card-shadow">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-inner">
+<span class="text-5xl">⭐</span>
+</div>
+<div>
+<div class="font-display-hero text-headline-lg mb-1">250</div>
+<div class="font-label-bold text-label-bold opacity-80">Stars earned</div>
+</div>
+</div>
+</div>
+<!-- Progress Map -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-gap flex-grow card-shadow border-4 border-surface-container flex flex-col relative overflow-hidden">
+<h2 class="font-headline-lg text-headline-lg mb-6 text-on-surface z-10">My Adventure</h2>
+<div class="relative w-full h-full min-h-[400px] flex items-center justify-center bg-surface-container-low rounded-lg border-4 border-surface-variant overflow-hidden">
+<!-- Map Background Image -->
+<div class="absolute inset-0 bg-cover bg-center opacity-50" data-alt="A highly stylized, vibrant 2D illustration of a winding path through a magical forest, designed for a kids' educational app. The path is made of bright yellow cobblestones, winding past giant colorful mushrooms, friendly cartoon trees, and a sparkling blue stream. The style is cute, colorful, and tactile, reminiscent of high-end mobile puzzle games. The lighting is bright and cheerful." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBIk9vjyO_Ju_GdMJMkTowyXcg4Abl8qBUMAjlqYZF9brnBsmEQ2PYGswkgd5gtkpx3rYJHe9sG5xF9xZ4bq1g3k2c-SP_nM2m4A3vPzDVNTduQdBHleuwQZbIBSkaSwN7FFyXoLuA3zo27JASyi5bpjfO5ysfDKZ_iEDlB-IRdugHSfoVgCIuIIjwQ1HRz5KVsgIb4mvizyVnWcee0Ho2CE2b_YihOmJERQmg9pBkaWBz-GP5NquIA')"></div>
+<!-- Decorative SVG Path -->
+<svg class="absolute inset-0 w-full h-full z-0" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M 10,90 Q 30,50 50,70 T 90,10" fill="none" opacity="0.6" stroke="var(--tw-colors-primary-container)" stroke-linecap="round" stroke-width="8"></path>
+</svg>
+<!-- Path Nodes -->
+<div class="absolute w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center border-4 border-on-primary-container shadow-lg z-10 squishy-btn" style="bottom: 15%; left: 15%; border-color: #004c6b;">
+<span class="material-symbols-outlined text-3xl" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="absolute w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center border-4 border-on-primary-container shadow-lg z-10 squishy-btn" style="bottom: 40%; left: 45%; border-color: #004c6b;">
+<span class="material-symbols-outlined text-3xl" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<!-- Current Level Node -->
+<div class="absolute w-24 h-24 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center border-4 border-secondary shadow-xl z-20 squishy-btn animate-bounce" style="top: 25%; right: 20%; border-color: #6f5900;">
+<span class="material-symbols-outlined text-5xl" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<div class="absolute -top-4 -right-4 bg-tertiary text-on-tertiary font-label-bold text-sm px-3 py-1 rounded-full shadow-md">
+                            Here!
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container-lowest dark:bg-surface-container docked full-width bottom-0 rounded-t-lg border-t-4 border-surface-container-high dark:border-outline-variant shadow-md fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-16 h-16 rounded-lg" href="#">
+<span class="material-symbols-outlined text-3xl mb-1" data-icon="home">home</span>
+<span class="font-label-bold text-xs">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-16 h-16 rounded-lg" href="#">
+<span class="material-symbols-outlined text-3xl mb-1" data-icon="school">school</span>
+<span class="font-label-bold text-xs">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-16 h-16 rounded-lg" href="#">
+<span class="material-symbols-outlined text-3xl mb-1" data-icon="videogame_asset">videogame_asset</span>
+<span class="font-label-bold text-xs">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-unit border-b-4 border-secondary hover:bg-surface-container-high transition-colors w-20 h-20 -mt-8 shadow-lg" href="#">
+<span class="material-symbols-outlined text-4xl mb-1" data-icon="face" data-weight="fill" style="font-variation-settings: 'FILL' 1;">face</span>
+<span class="font-label-bold text-sm">Profile</span>
+</a>
+</nav>
+</body></html>

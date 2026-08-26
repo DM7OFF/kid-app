@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JoyLearn - Well done!</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Lexend:wght@700&amp;family=Quicksand:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fdd029;
+            opacity: 0;
+        }
+        
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .star-burst {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes starPop {
+            0% { transform: scale(0); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        .wiggle {
+            animation: wiggle 2s linear infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 7% { transform: rotateZ(0); }
+            15% { transform: rotateZ(-15deg); }
+            20% { transform: rotateZ(10deg); }
+            25% { transform: rotateZ(-10deg); }
+            30% { transform: rotateZ(6deg); }
+            35% { transform: rotateZ(-4deg); }
+            40%, 100% { transform: rotateZ(0); }
+        }
+        
+        .bouncy-button {
+            box-shadow: 0 8px 0 theme('colors.tertiary');
+            transition: all 0.1s ease-in-out;
+        }
+        .bouncy-button:active {
+            transform: translateY(8px);
+            box-shadow: 0 0 0 theme('colors.tertiary');
+        }
+        
+        .card-depth {
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-primary-fixed min-h-screen flex items-center justify-center overflow-hidden relative selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Confetti Container -->
+<div class="absolute inset-0 z-0 pointer-events-none" id="confetti-container"></div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full max-w-4xl p-margin-mobile flex flex-col items-center justify-center min-h-screen gap-stack-gap">
+<!-- Victory Card -->
+<div class="bg-surface-container-lowest rounded-xl p-margin-tablet flex flex-col items-center justify-center text-center gap-stack-gap card-depth w-full max-w-2xl relative">
+<!-- Character Asset -->
+<div class="absolute -top-32 -right-16 md:-right-32 w-64 h-64 md:w-80 md:h-80 z-20 animate-[bounce_3s_ease-in-out_infinite]">
+<img alt="Cheering Character" class="w-full h-full object-contain filter drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida/AEtjO1Xi_MHV-nkpi0wfXvGx4pFnz-DVsKq4YP-mICIRLCD5WGAUlB6ixaFr8_jqH0woAS7KYZ3B2pSnqrBUeZmC2XNpvsfqdpwGYwOLe21ESZSbtVYuiR5t348Ji67eH7aEGml3bdPecc0LDNg8cWWrN9GMZhbAjBHvnqFfiJzkezy5TWq9-7rmVyrNMIo6q5bpriUMgWiiYLFXLMR2ePnUjMgUCKMHC0HDNAJsi8BcFiwH94ZfIJ02Nec0Kg"/>
+</div>
+<!-- Trophy / Main Icon Placeholder -->
+<div class="w-48 h-48 md:w-64 md:h-64 flex items-center justify-center bg-secondary-container rounded-full border-8 border-secondary-fixed-dim shadow-inner relative wiggle">
+<span class="material-symbols-outlined text-[120px] text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">
+                    emoji_events
+                </span>
+<!-- Sparkles around trophy -->
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-tertiary-container text-4xl animate-pulse">arrow_back_ios_new</span>
+<span class="material-symbols-outlined absolute bottom-4 -left-8 text-primary-container text-5xl animate-bounce" style="animation-delay: 0.5s;">stars</span>
+</div>
+<!-- Headline -->
+<div class="flex flex-col gap-2">
+<h1 class="font-display-hero text-display-hero text-primary drop-shadow-md">
+                    Well done!
+                </h1>
+<p class="font-headline-lg text-headline-lg text-on-surface">
+                    You're a champion!
+                </p>
+</div>
+<!-- Rewards Section -->
+<div class="flex flex-col md:flex-row gap-gutter w-full justify-center">
+<!-- Stars Reward -->
+<div class="bg-secondary-fixed rounded-lg p-unit border-4 border-secondary-container flex items-center gap-unit transform hover:scale-105 transition-transform cursor-default">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex flex-col text-left pr-4">
+<span class="font-label-bold text-label-bold text-on-secondary-container">Reward</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-secondary">+10 Stars</span>
+</div>
+</div>
+<!-- Badge Reward -->
+<div class="bg-tertiary-fixed rounded-lg p-unit border-4 border-tertiary-container flex items-center gap-unit transform hover:scale-105 transition-transform cursor-default">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-4xl text-tertiary" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="flex flex-col text-left pr-4">
+<span class="font-label-bold text-label-bold text-on-tertiary-container">New Badge</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-tertiary">Unlocked!</span>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="bg-tertiary-container text-on-tertiary-container font-headline-lg text-headline-lg rounded-full px-12 h-[80px] w-full max-w-sm mt-8 flex items-center justify-center gap-4 bouncy-button group">
+<span>Next</span>
+<span class="material-symbols-outlined text-4xl group-hover:translate-x-2 transition-transform">
+                    arrow_forward
+                </span>
+</button>
+</div>
+</main>
+<script>
+        // Confetti Effect
+        const colors = ['#fdd029', '#47c1ff', '#ff9d78', '#00658d'];
+        const container = document.getElementById('confetti-container');
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Randomize size and shape
+            if(Math.random() > 0.5) {
+                confetti.style.borderRadius = '50%';
+            }
+            
+            const size = Math.random() * 15 + 5;
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+
+            const duration = Math.random() * 3 + 2;
+            confetti.style.animation = `confettiFall ${duration}s linear forwards`;
+            
+            container.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, duration * 1000);
+        }
+
+        // Initial burst
+        for(let i=0; i<100; i++) {
+            setTimeout(createConfetti, i * 20);
+        }
+
+        // Continuous light fall
+        setInterval(() => {
+            createConfetti();
+        }, 150);
+
+        // Star Pop Effect on Click
+        document.body.addEventListener('click', (e) => {
+            const star = document.createElement('span');
+            star.classList.add('material-symbols-outlined', 'star-burst', 'text-secondary-container');
+            star.textContent = 'star';
+            star.style.fontVariationSettings = "'FILL' 1";
+            star.style.fontSize = '48px';
+            star.style.left = `${e.clientX - 24}px`;
+            star.style.top = `${e.clientY - 24}px`;
+            star.style.animation = 'starPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+            
+            document.body.appendChild(star);
+            
+            setTimeout(() => {
+                star.remove();
+            }, 800);
+        });
+    </script>
+</body></html>

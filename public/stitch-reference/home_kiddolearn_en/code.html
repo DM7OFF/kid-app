@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KiddoLearn - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;600&amp;family=Lexend:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* 3D Button effect */
+        .btn-3d {
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 0 rgba(0,0,0,0.1);
+        }
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 rgba(0,0,0,0.1);
+        }
+
+        /* Wiggle animation */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-wiggle {
+            animation: wiggle 1s ease-in-out infinite;
+        }
+
+        /* Pastel cloud background */
+        .bg-clouds {
+            background-color: #fbf9f8;
+            background-image: radial-gradient(circle at 20% 20%, rgba(255, 219, 206, 0.4) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 80%, rgba(198, 231, 255, 0.4) 0%, transparent 40%),
+                              radial-gradient(circle at 50% 50%, rgba(253, 208, 41, 0.2) 0%, transparent 60%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand"],
+                        "body-lg": ["Quicksand"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Lexend"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-hero": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-clouds min-h-screen text-on-background font-body-lg pb-[100px] md:pb-0 overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-margin-mobile h-touch-target-min w-full max-w-screen-xl mx-auto pt-6 pb-4">
+<!-- Logo -->
+<div class="flex items-center gap-3">
+<img alt="KiddoLearn Logo" class="w-12 h-12 rounded-full shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCck1fw8iXsBjNpdTmPi7cZlBLCRP_TnrGrKZJH4_qMn637AM3oiWK_7RhvJWRNITgg59nXwbaMG3P7YDGgNpPC_O8UMLBEsacbuaGtumGWlRYCnvGITlNTS79gmT-DiW2Y-O6RYaiSVf6cwVVD5VVqdEDz154BzUUPAo1hHX5JPTHIcjuzP3Ib896WyClA6vtL1iAIldsm_EEQttO34Vl0Dk4oPsk9GUNaPHH8XEFDvcuuVvWDdwUe"/>
+<span class="font-display-hero text-headline-lg-mobile text-primary hidden sm:block">JoyLearn</span>
+</div>
+<!-- Header Stats -->
+<div class="flex items-center gap-4 bg-surface-container-lowest rounded-full px-4 py-2 shadow-sm">
+<!-- Stars -->
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-bold text-label-bold text-on-surface">124</span>
+</div>
+<!-- Streak -->
+<div class="flex items-center gap-1 border-l border-outline-variant pl-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-bold text-label-bold text-on-surface">5</span>
+</div>
+<!-- Progress Bar Mini -->
+<div class="hidden md:flex items-center gap-2 border-l border-outline-variant pl-4 w-32">
+<div class="w-full bg-surface-variant rounded-full h-3">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-3 rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<!-- Profile / Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors hidden md:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Child profile avatar" class="w-12 h-12 rounded-full border-2 border-primary object-cover shadow-sm cursor-pointer hover:scale-105 transition-transform" data-alt="A 3D rendered avatar of a happy child with curly hair and a colorful jacket, smiling brightly against a soft pastel background. High quality, smooth textures, playful EdTech style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH_L36rxJBqEj7G7SeMik8uQh0DZkDAc2KqBe8mifC6viYumi-eEKJJAn92K3rL0Erk30Gwd64cT9C6rlQCqBKWy06dwj-7a3l28vhYC_HqOhA1wGX09RAwIqQ6PsnPJ6zYdjwcongGGxTvdfQBNhFktvhNxiix0w6scagK1uu-tr1AfhYq1U8UDP0jLQagKfIGlWcHE5XzWa8Ne5n9JJOhHUmJ74Eki72mm7Rxjx5uH2kTQgjhmXL"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-screen-xl mx-auto px-margin-mobile pt-8 flex flex-col gap-12">
+<!-- Hero Section -->
+<section class="flex flex-col items-center text-center gap-6">
+<h1 class="font-display-hero text-display-hero text-primary drop-shadow-sm">Let's learn together!</h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-2xl">What do you want to discover today?</p>
+</section>
+<!-- Bento Grid Activity Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Letters (In Progress) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-primary-container cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-primary-container p-4 rounded-xl shadow-sm">
+<img alt="ABC Icon" class="w-16 h-16 object-contain" data-alt="A colorful, 3D rendered set of letters 'ABC' in a soft, squishy, tactile style. The letters are bright blue, green, and yellow, resembling high-quality children's toys, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv3Q_9WpxO0T_2paYLgVa-ciN1zEefkY8ewbBLlfct9D-f0JIiQ74wTMQ6gGWEX7lIK4i658w0HuxtYB_hTqQ7p8bbqqYk3GDreox4C_bYc-Boqr6b1VSjnencEdoRrR8qc38uz42mpQz4FJxxObvL1AgnVgBTU1HlgkFJSTkvexyRuMPqPQ1crZi54Brm1p5goWm_bKQ9cg5x-ieKK3g_hAP-KSCEa8ag2xuh4c_se4vZrX8IrJkp"/>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-bold text-label-bold text-on-surface">5</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Letters</h3>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-variant rounded-full h-4 relative">
+<div class="bg-primary h-4 rounded-full transition-all duration-1000" style="width: 40%"></div>
+<!-- Sparkle at end of progress -->
+<span class="material-symbols-outlined text-secondary-container absolute top-1/2 -translate-y-1/2 text-sm" style="left: calc(40% - 10px); font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+</div>
+<button class="mt-auto bg-primary text-on-primary font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-on-primary-container hover:bg-on-primary-fixed-variant">Continue</button>
+</div>
+<!-- Card 2: Numbers (In Progress) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-secondary-container cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-secondary-container p-4 rounded-xl shadow-sm">
+<img alt="123 Icon" class="w-16 h-16 object-contain" data-alt="A colorful, 3D rendered set of numbers '123' in a soft, squishy, tactile style. The numbers are bright orange, purple, and pink, resembling high-quality children's toys, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1K47gC61rnhWLZ6CAABUNVp78wNMRFAYUe2EONyhJGiOWNtBcbSOLEirsUhUH61wguWKgXr99dbT571OoJk2DT70Ey_sw7UQ6Wzn47YnXF6RKyMJY1LBb33-v2pS6dJwIdVBH6ilLhJimUdIZm4ZeB8meVHzTV8Bauv50tqTSvbtfqzk8Qc3jzYN6-OfLrVOi5Pvk9R1LxBIFOp4r0v0yPYDtLEvcZ30XCc2FUFsyVMJvn9HQVOn"/>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-bold text-label-bold text-on-surface">3</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Numbers</h3>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-variant rounded-full h-4 relative">
+<div class="bg-secondary h-4 rounded-full transition-all duration-1000" style="width: 20%"></div>
+<span class="material-symbols-outlined text-primary-container absolute top-1/2 -translate-y-1/2 text-sm" style="left: calc(20% - 10px); font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+</div>
+<button class="mt-auto bg-secondary text-on-secondary font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-on-secondary-container hover:bg-on-secondary-fixed-variant">Continue</button>
+</div>
+<!-- Card 3: Colors -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-tertiary-container cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-container/20 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-tertiary-container p-4 rounded-xl shadow-sm">
+<img alt="Palette Icon" class="w-16 h-16 object-contain" data-alt="A colorful, 3D rendered artist palette with a brush in a soft, squishy, tactile style. The palette has blobs of vibrant primary and secondary colors, resembling a high-quality children's toy, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcRHtzKF4c3kasO50bs7YHQbq0wtgHV6FchzdeVgBX3CcZse-FZ4QnL_tz7_eHdlAwoSFmxVxUecpJS-TY5kW8X2XG7gh9x6BWdo1qyealrU5mMdy0dSDZc-NDOl_0NOArft-aTfMFOBEUaB1nU3BoBWbolvYdzb-4zhBnVDHn2K4ty28Ju7cgYpoaxfzZk4_VcA5HBRCSGPxfFfwtpPeHr8WUm_7tczcx0VgbY1mqdNpL8kdhDPg7"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Colors</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Discover the rainbow!</p>
+</div>
+<button class="mt-auto bg-tertiary text-on-tertiary font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-on-tertiary-container hover:bg-on-tertiary-fixed-variant">Play</button>
+</div>
+<!-- Card 4: Animals -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-primary-fixed cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-primary-fixed p-4 rounded-xl shadow-sm">
+<img alt="Puppy Icon" class="w-16 h-16 object-contain" data-alt="A cute, 3D rendered cartoon puppy face in a soft, squishy, tactile style. The puppy has floppy ears and a friendly expression, resembling a high-quality children's toy, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDneEINIjoi21WI7vTM7zyReQ1y2YqlB0eTUgMxshIWF7FGiMmp47T3N4TAICqoCaIbimupU2vrs0CY5ffFcHRfaeWiwHDX92rO3PWHHV5ktqmktkcaZO2lpiPcJ0jBtILCw9yGob0O89Wp32JMmhT8g2yjr1fcbNLOzQhAyznCteNBj2_jvL3E9szh9qqZ-To4TSaL69DUcPItHUC4-Umr6c-KQxRT9qXYgAbE7ufNf6_lZP76Ppvf"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Animals</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Meow, Woof!</p>
+</div>
+<button class="mt-auto bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-primary hover:bg-primary hover:text-on-primary transition-colors">Play</button>
+</div>
+<!-- Card 5: Songs -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-secondary-fixed cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-secondary-fixed p-4 rounded-xl shadow-sm">
+<img alt="Musical Note Icon" class="w-16 h-16 object-contain" data-alt="A colorful, 3D rendered musical note in a soft, squishy, tactile style. The note is blue and yellow, resembling a high-quality children's toy, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7cA8qiLfU9jq4eHFGgGi8KNDKXdWvhVTM91Tcw_9M3pNjXNhG4v5aw2hCXV69KPShxZ4uqgxdfcG7JDEejCu4i8J7QDNMAyicuwa9CgMkjw-hyqvopY1RsMC-TnVZI7xx7pHLVJEQlI8gO0ocOa60Ckgrl0kdniqGfz63qKE-pdbAnDjkDka_5lAwmmmOJw9HRrT3Whu51oyYSazib7nFtGv0_33EsSgBxn5OIXleOZS2onX2mY-q"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Songs</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Let's sing together!</p>
+</div>
+<button class="mt-auto bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-secondary hover:bg-secondary hover:text-on-secondary transition-colors">Listen</button>
+</div>
+<!-- Card 6: Games -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-tertiary-fixed cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-tertiary-fixed/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex justify-between items-start">
+<div class="bg-tertiary-fixed p-4 rounded-xl shadow-sm animate-wiggle">
+<img alt="Puzzle Icon" class="w-16 h-16 object-contain" data-alt="A colorful, 3D rendered puzzle piece in a soft, squishy, tactile style. The puzzle piece has a gradient of pastel colors, resembling a high-quality children's toy, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhadoNUHlNI_EKBaecOpVz4AZnx3alcbyUnBadMj7YxqmLOuGsfG2Ch7txL0rnxwEJGeM0l_gKJnc1GFnp13UvVSbh_lrQoFJIP8ZkZVQM3wRk6KoPai2hZ6XTVXAB-blgERD3YEFnJ1BFWOfIn0wz8r1SFTieDWnMRXOl6j5IoEG2HO9T8KNSRfSwmGa611nVVkT5RntHvX8vgNZ-bM8UkUcCVfmqMlrfbTiBtlG7sqbq85LMtf1_"/>
+</div>
+</div>
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Games</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Have fun!</p>
+</div>
+<button class="mt-auto bg-tertiary-container text-on-tertiary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-tertiary hover:bg-tertiary hover:text-on-tertiary transition-colors">Play</button>
+</div>
+<!-- Card 7: Stories -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-outline-variant cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group md:col-span-2 lg:col-span-3">
+<div class="absolute top-0 right-0 w-32 h-32 bg-surface-variant/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+<div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+<div class="bg-surface-variant p-4 rounded-xl shadow-sm shrink-0">
+<img alt="Book Icon" class="w-24 h-24 object-contain" data-alt="A colorful, 3D rendered open book in a soft, squishy, tactile style. The book has a tiny landscape illustration on one page and the words 'once upon a time' on the other, resembling a high-quality children's toy, set against a clean white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsKmd-GX5NY8UI4xrMKh-uFFULdih0Vxr_9PI_XvRN6FIddKpQXDaRqdaXt6ek4ZiQu1Iqr04sdYoPvJHpU5aD_dYkZZTAn0fJb5VDfEomuIzOeT6_VxVlNSCXE5-LBNlkx76EmIICG1_hiufGi441lXH8E6nTe0JOK6huU-aCiEBcHA7sCsI6yLcD86YLJQONoJi2BJx1Nu5KNNH8hGARrx1bazIq4C6cr7OnqfBZebolmGCcITKC"/>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-display-hero text-headline-lg text-on-surface mb-2">Stories</h3>
+<p class="font-body-xl text-body-xl text-on-surface-variant mb-6">Once upon a time... wonderful adventures await you!</p>
+<button class="bg-primary text-on-primary font-label-bold text-label-bold py-4 px-8 rounded-full btn-3d border-b-[6px] border-on-primary-container hover:bg-on-primary-fixed-variant text-xl">Read a story</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile/Tablet) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container-lowest shadow-md rounded-t-lg border-t-4 border-surface-container-high">
+<!-- Active: Accueil -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-unit border-b-4 border-secondary translate-y-1 transition-all duration-75 min-w-[64px] min-h-[64px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-bold text-label-bold mt-1 text-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors min-w-[64px] min-h-[64px]">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-bold text-label-bold mt-1 text-sm">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors min-w-[64px] min-h-[64px]">
+<span class="material-symbols-outlined">videogame_asset</span>
+<span class="font-label-bold text-label-bold mt-1 text-sm">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors min-w-[64px] min-h-[64px]">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="font-label-bold text-label-bold mt-1 text-sm">Rewards</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors min-w-[64px] min-h-[64px]">
+<span class="material-symbols-outlined">face</span>
+<span class="font-label-bold text-label-bold mt-1 text-sm">Profile</span>
+</button>
+</nav>
+<!-- Desktop Navigation Side/Top Extension (Conceptual, hidden on mobile) -->
+<div class="hidden md:flex fixed left-0 top-1/4 flex-col gap-4 ml-4 bg-surface-container-lowest p-4 rounded-2xl shadow-lg border-2 border-surface-variant">
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-3 border-b-4 border-secondary translate-y-1 transition-all duration-75 w-20 h-20">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-bold text-label-bold mt-1 text-xs">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-20 h-20 rounded-lg">
+<span class="material-symbols-outlined text-3xl">school</span>
+<span class="font-label-bold text-label-bold mt-1 text-xs">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-20 h-20 rounded-lg">
+<span class="material-symbols-outlined text-3xl">videogame_asset</span>
+<span class="font-label-bold text-label-bold mt-1 text-xs">Play</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant p-3 border-b-4 border-transparent hover:bg-surface-container-high transition-colors w-20 h-20 rounded-lg">
+<span class="material-symbols-outlined text-3xl">military_tech</span>
+<span class="font-label-bold text-label-bold mt-1 text-xs text-center leading-tight">Rewards</span>
+</button>
+</div>
+</body></html>

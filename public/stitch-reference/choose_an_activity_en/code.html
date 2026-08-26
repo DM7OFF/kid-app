@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>JoyLearn - Choose Activity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fdd029",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dbd9d9",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe085",
+                        "outline": "#6e7881",
+                        "primary": "#00658d",
+                        "surface-tint": "#00658d",
+                        "surface-container-high": "#eae8e7",
+                        "on-secondary-fixed-variant": "#574500",
+                        "background": "#fbf9f8",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#93000a",
+                        "surface": "#fbf9f8",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "on-surface-variant": "#3e4850",
+                        "on-tertiary-fixed": "#380d00",
+                        "on-tertiary-fixed-variant": "#7f2b02",
+                        "secondary": "#735c00",
+                        "on-secondary-container": "#6f5900",
+                        "tertiary": "#9f4119",
+                        "on-primary-fixed": "#001e2d",
+                        "on-primary-fixed-variant": "#004c6b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#802b03",
+                        "primary-fixed-dim": "#81cfff",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-variant": "#e4e2e2",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed": "#c6e7ff",
+                        "secondary-fixed-dim": "#eec215",
+                        "on-primary-container": "#004d6c",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#81cfff",
+                        "tertiary-container": "#ff9d78",
+                        "outline-variant": "#bdc8d1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "primary-container": "#47c1ff",
+                        "inverse-surface": "#303030",
+                        "surface-container-low": "#f5f3f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-tablet": "48px",
+                        "touch-target-min": "64px",
+                        "stack-gap": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-xl": ["Quicksand", "sans-serif"],
+                        "body-lg": ["Quicksand", "sans-serif"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-bold": ["Lexend", "sans-serif"],
+                        "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+                        "display-hero": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-xl": ["24px", { "lineHeight": "1.5", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "1.5", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["18px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-hero": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Quicksand:wght@500;600&amp;family=Lexend:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1; }
+        /* Hide scrollbar for clean horizontal scroll */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Bouncy tactile effects */
+        .bouncy-card {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bouncy-card:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop h-touch-target-min w-full max-w-screen-xl mx-auto bg-background flat no shadows">
+<div class="flex items-center gap-4">
+<span class="font-display-hero text-headline-lg text-primary">JoyLearn</span>
+</div>
+<nav class="flex gap-8 items-center">
+<a class="text-primary font-label-bold text-label-bold" href="#">Learn</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform" href="#">Play</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:scale-105 transition-transform" href="#">Rewards</a>
+</nav>
+<div class="flex items-center gap-4">
+<button aria-label="stars" class="p-2 text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl">stars</span>
+</button>
+<button class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container hover:scale-105 transition-transform">
+<img alt="Child profile avatar" class="w-full h-full object-cover" data-alt="A bright, cheerful 3D avatar of a young child with a big smile, rendered in a soft, squishy Pixar-like style. The avatar is set against a vibrant yellow background, perfectly matching a joyful, kid-friendly educational interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf_EXSpGhz3Bl0A0nxvh6p9BOLcKYAagRkfb6lIBXaRb-T8RjSQ2OuzZPpZi9vkPQE9ASJyb4cMUJb0B_U4ya4AqLryFH6tanUOBG_QRu4t9EHz_e9a8mPmKSfVzN35vFPf-CcTZq3SaKb3BbBdqeLUb6ltC4_oa8bSkrtFVf9i7a052vVVXcpSDS-rFXD7XcajN0OtUmPwSj-eJnR0p37ij5Vwzn9HIULt5p0HuReK6FFqs2YtH3d"/>
+</button>
+<button aria-label="settings" class="p-2 text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-4xl">settings</span>
+</button>
+</div>
+</header>
+<!-- TopAppBar (Mobile) -->
+<header class="flex md:hidden justify-between items-center px-margin-mobile h-touch-target-min w-full bg-background flat no shadows">
+<span class="font-display-hero text-headline-lg-mobile text-primary">JoyLearn</span>
+<div class="flex items-center gap-2">
+<button aria-label="stars" class="p-2 text-primary">
+<span class="material-symbols-outlined text-3xl">stars</span>
+</button>
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Child profile avatar" class="w-full h-full object-cover" data-alt="A bright, cheerful 3D avatar of a young child with a big smile, rendered in a soft, squishy Pixar-like style. The avatar is set against a vibrant yellow background, perfectly matching a joyful, kid-friendly educational interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsM2AEglPof0Lx2LTZI77_HXERWBGT94ohb3oPbLhz_R8loSvDXUBk2zw5kTfw4lmWKhtZY3CVqHegJiypdxYs-YU2p7s5RA5AEAML0TSqsldYy9i_OAebQWBkZ_b3JoOXI3hqk752H1LPMQlw-Ot6NdEyticc66Bd7Zgs3RoI_zn8UevVkE3lngAMYVEXN261Ke0OMK8nGo1cRgLXSD1FQwFkyF6b5J92fvGjNNlnY2Rqttbgwp0t"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full pb-32 md:pb-12 pt-8">
+<div class="px-margin-mobile md:px-margin-desktop mb-8">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-2">Choose your World!</h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant">Ready for a new adventure?</p>
+</div>
+<!-- Horizontal Scroll of Worlds -->
+<div class="w-full overflow-x-auto hide-scrollbar pl-margin-mobile md:pl-margin-desktop pr-8 pb-12 pt-4">
+<div class="flex gap-stack-gap w-max">
+<!-- Monde des Lettres -->
+<button class="bouncy-card group relative w-72 md:w-96 h-[400px] md:h-[500px] rounded-[3rem] bg-primary-container border-b-[8px] border-on-primary-container shadow-lg flex flex-col items-center justify-between p-8 overflow-hidden text-left focus:outline-none focus:ring-4 focus:ring-primary">
+<div class="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-on-primary-container">abc</span>
+</div>
+<div class="w-full z-10">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-primary text-5xl">auto_stories</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary-container mb-2">World of Letters</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 line-clamp-2">Discover the magic alphabet!</p>
+</div>
+<div class="w-full flex justify-between items-end z-10">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-primary-container/60">star</span>
+<span class="material-symbols-outlined text-on-primary-container/60">star</span>
+</div>
+<div class="bg-on-primary-container text-surface-container-lowest rounded-full p-4 transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</div>
+</div>
+</button>
+<!-- Monde des Chiffres -->
+<button class="bouncy-card group relative w-72 md:w-96 h-[400px] md:h-[500px] rounded-[3rem] bg-tertiary-container border-b-[8px] border-on-tertiary-container shadow-lg flex flex-col items-center justify-between p-8 overflow-hidden text-left focus:outline-none focus:ring-4 focus:ring-tertiary">
+<div class="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-on-tertiary-container">123</span>
+</div>
+<div class="w-full z-10">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-tertiary text-5xl">calculate</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-tertiary-container mb-2">World of Numbers</h2>
+<p class="font-body-lg text-body-lg text-on-tertiary-container/80 line-clamp-2">Count with your friends!</p>
+</div>
+<div class="w-full flex justify-between items-end z-10">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container/60">star</span>
+</div>
+<div class="bg-on-tertiary-container text-surface-container-lowest rounded-full p-4 transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</div>
+</div>
+</button>
+<!-- Monde des Chansons -->
+<button class="bouncy-card group relative w-72 md:w-96 h-[400px] md:h-[500px] rounded-[3rem] bg-secondary-container border-b-[8px] border-on-secondary-container shadow-lg flex flex-col items-center justify-between p-8 overflow-hidden text-left focus:outline-none focus:ring-4 focus:ring-secondary">
+<div class="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-on-secondary-container">music_note</span>
+</div>
+<div class="w-full z-10">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full flex items-center justify-center mb-4 shadow-md">
+<span class="material-symbols-outlined text-secondary text-5xl">headphones</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-secondary-container mb-2">World of Songs</h2>
+<p class="font-body-lg text-body-lg text-on-secondary-container/80 line-clamp-2">Sing and dance!</p>
+</div>
+<div class="w-full flex justify-between items-end z-10">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-secondary-container/60">star</span>
+<span class="material-symbols-outlined text-on-secondary-container/60">star</span>
+<span class="material-symbols-outlined text-on-secondary-container/60">star</span>
+</div>
+<div class="bg-on-secondary-container text-surface-container-lowest rounded-full p-4 transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</div>
+</div>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-gutter py-2 bg-surface-container-lowest border-t-4 border-surface-container-high shadow-md rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors active:translate-y-1 active:border-b-0 duration-75 min-h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-3xl mb-1">home</span>
+<span class="font-label-bold text-label-bold text-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg p-unit border-b-4 border-secondary hover:bg-surface-container-high transition-colors active:translate-y-1 active:border-b-0 duration-75 min-h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-3xl mb-1">school</span>
+<span class="font-label-bold text-label-bold text-sm">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors active:translate-y-1 active:border-b-0 duration-75 min-h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-3xl mb-1">videogame_asset</span>
+<span class="font-label-bold text-label-bold text-sm">Play</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors active:translate-y-1 active:border-b-0 duration-75 min-h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-3xl mb-1">military_tech</span>
+<span class="font-label-bold text-label-bold text-sm">Rewards</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-unit border-b-4 border-transparent hover:bg-surface-container-high transition-colors active:translate-y-1 active:border-b-0 duration-75 min-h-[64px] min-w-[64px]" href="#">
+<span class="material-symbols-outlined text-3xl mb-1">face</span>
+<span class="font-label-bold text-label-bold text-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple drag to scroll for the horizontal container to enhance tactile feel
+        const slider = document.querySelector('.overflow-x-auto');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        slider.style.cursor = 'grab';
+    </script>
+</body></html>
