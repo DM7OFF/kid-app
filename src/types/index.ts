@@ -7,7 +7,8 @@ export type ScreenType =
   | 'victory'
   | 'progress'
   | 'rewards'
-  | 'profile';
+  | 'profile'
+  | 'songs';
 
 export interface UserStats {
   stars: number;

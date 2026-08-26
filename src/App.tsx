@@ -11,6 +11,7 @@ import { VictoryPage } from './pages/VictoryPage';
 import { ProgressPage } from './pages/ProgressPage';
 import { RewardsPage } from './pages/RewardsPage';
 import { ProfilePage } from './pages/ProfilePage';
+import { SongsPage } from './pages/SongsPage';
 
 const AppContent: React.FC = () => {
   const { currentScreen } = useApp();
@@ -35,6 +36,8 @@ const AppContent: React.FC = () => {
         return <RewardsPage />;
       case 'profile':
         return <ProfilePage />;
+      case 'songs':
+        return <SongsPage />;
       default:
         return <HomePage />;
     }

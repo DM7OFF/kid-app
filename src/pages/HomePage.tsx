@@ -5,7 +5,7 @@ import { BottomNavBar } from '../components/common/BottomNavBar';
 import { DesktopSidebar } from '../components/common/DesktopSidebar';
 
 export const HomePage: React.FC = () => {
-  const { navigateTo, playLetterAudio, playSuccessSound, playSong, stopSong } = useApp();
+  const { navigateTo, playLetterAudio, playSuccessSound } = useApp();
 
   return (
     <div className="bg-clouds min-h-screen text-on-background font-body-lg pb-[100px] md:pb-12 overflow-x-hidden">
@@ -201,6 +201,7 @@ export const HomePage: React.FC = () => {
 
           {/* Card 5: Songs */}
           <div
+            onClick={() => navigateTo('songs')}
             className="bg-surface-container-lowest rounded-xl p-6 shadow-md border-b-[6px] border-secondary-fixed cursor-pointer hover:translate-y-1 hover:border-b-4 transition-all flex flex-col gap-4 relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 w-24 h-24 bg-secondary-fixed/30 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
@@ -212,13 +213,10 @@ export const HomePage: React.FC = () => {
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7cA8qiLfU9jq4eHFGgGi8KNDKXdWvhVTM91Tcw_9M3pNjXNhG4v5aw2hCXV69KPShxZ4uqgxdfcG7JDEejCu4i8J7QDNMAyicuwa9CgMkjw-hyqvopY1RsMC-TnVZI7xx7pHLVJEQlI8gO0ocOa60Ckgrl0kdniqGfz63qKE-pdbAnDjkDka_5lAwmmmOJw9HRrT3Whu51oyYSazib7nFtGv0_33EsSgBxn5OIXleOZS2onX2mY-q"
                 />
               </div>
-              <button
-                onClick={() => stopSong()}
-                className="bg-error-container text-on-error-container p-2 rounded-full shadow hover:bg-error hover:text-on-error transition-colors"
-                title="Stop song"
-              >
-                <span className="material-symbols-outlined text-xl">stop</span>
-              </button>
+              <div className="flex items-center gap-1 bg-secondary-fixed/40 px-3 py-1 rounded-full">
+                <span className="material-symbols-outlined text-on-secondary-container text-xl material-symbols-fill">music_note</span>
+                <span className="font-label-bold text-label-bold text-on-secondary-container">2 songs</span>
+              </div>
             </div>
             <div>
               <h3 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">
@@ -228,28 +226,16 @@ export const HomePage: React.FC = () => {
                 Let's sing together! 🎵
               </p>
             </div>
-            <div className="flex gap-3 mt-auto">
-              <button
-                onClick={e => {
-                  e.stopPropagation();
-                  playSong('abc');
-                }}
-                className="flex-1 bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-secondary hover:bg-secondary hover:text-on-secondary transition-colors active:translate-y-1 flex items-center justify-center gap-1"
-              >
-                <span className="material-symbols-outlined text-base">music_note</span>
-                ABC Song
-              </button>
-              <button
-                onClick={e => {
-                  e.stopPropagation();
-                  playSong('counting');
-                }}
-                className="flex-1 bg-primary-container text-on-primary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-primary hover:bg-primary hover:text-on-primary transition-colors active:translate-y-1 flex items-center justify-center gap-1"
-              >
-                <span className="material-symbols-outlined text-base">123</span>
-                1-10 Song
-              </button>
-            </div>
+            <button
+              onClick={e => {
+                e.stopPropagation();
+                navigateTo('songs');
+              }}
+              className="mt-auto bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-3 rounded-lg btn-3d border-b-4 border-secondary hover:bg-secondary hover:text-on-secondary transition-colors active:translate-y-1 flex items-center justify-center gap-2"
+            >
+              <span className="material-symbols-outlined material-symbols-fill">headphones</span>
+              Let's Sing!
+            </button>
           </div>
 
           {/* Card 6: Games */}
