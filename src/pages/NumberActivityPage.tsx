@@ -46,13 +46,18 @@ const CHALLENGES: NumberChallenge[] = [
 ];
 
 export const NumberActivityPage: React.FC = () => {
-  const { navigateTo, playSuccessSound, addStars } = useApp();
+  const { navigateTo, playSuccessSound, playNumberAudio, addStars } = useApp();
   const [challengeIndex, setChallengeIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isCorrect, setIsCorrect] = useState(false);
   const [wrongOption, setWrongOption] = useState<number | null>(null);
 
   const currentChallenge = CHALLENGES[challengeIndex];
+
+  // Auto-play number audio when challenge changes
+  React.useEffect(() => {
+    playNumberAudio(currentChallenge.number);
+  }, [challengeIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleOptionClick = (num: number) => {
     if (num === currentChallenge.correct) {
@@ -101,13 +106,20 @@ export const NumberActivityPage: React.FC = () => {
         </div>
 
         {/* Activity Header */}
-        <div className="text-center animate-bounceIn">
+        <div className="text-center animate-bounceIn flex flex-col items-center gap-3">
           <h1 className="font-display-hero text-[70px] sm:text-[90px] md:text-[120px] text-primary drop-shadow-md leading-none">
             {currentChallenge.number}
           </h1>
           <h2 className="font-headline-lg text-primary-fixed-variant mt-1 font-bold">
             {currentChallenge.word}
           </h2>
+          <button
+            onClick={() => playNumberAudio(currentChallenge.number)}
+            className="flex items-center gap-2 bg-secondary-container text-on-secondary-container font-label-bold px-5 py-2.5 rounded-full btn-3d border-b-4 border-secondary hover:bg-secondary hover:text-on-secondary transition-all active:translate-y-1 shadow-md"
+          >
+            <span className="material-symbols-outlined text-2xl material-symbols-fill">volume_up</span>
+            Listen
+          </button>
         </div>
 
         {/* Central Interactive Area */}

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useRef, ReactNode } from 'react';
 import { ScreenType, UserStats, BadgeItem } from '../types';
 
 interface AppContextType {
@@ -10,6 +10,9 @@ interface AppContextType {
   currentLetter: string;
   setCurrentLetter: (letter: string) => void;
   playLetterAudio: (letter?: string) => Promise<void>;
+  playNumberAudio: (num: number) => Promise<void>;
+  playSong: (song: 'abc' | 'counting') => void;
+  stopSong: () => void;
   playSuccessSound: () => void;
   playCheerSound: () => void;
   isStickerModalOpen: boolean;
@@ -90,6 +93,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [isStickerModalOpen, setIsStickerModalOpen] = useState(false);
   const [isCustomizeModalOpen, setIsCustomizeModalOpen] = useState(false);
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const currentSongRef = useRef<HTMLAudioElement | null>(null);
 
   const navigateTo = (screen: ScreenType, params?: { letter?: string; number?: number }) => {
     if (params?.letter) {
@@ -144,6 +148,52 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         utterance.pitch = 1.2;
         window.speechSynthesis.speak(utterance);
       }
+    }
+  };
+
+  // Play number pronunciation audio (1-10)
+  const playNumberAudio = async (num: number) => {
+    const primaryPath = `/assets/audio/numbers/${num}.mp3`;
+    const fallbackPath = `/assets/audio/${num}.mp3`;
+    try {
+      const audio = new Audio(primaryPath);
+      await audio.play().catch(async () => {
+        const fallback = new Audio(fallbackPath);
+        await fallback.play();
+      });
+    } catch (e) {
+      console.warn(`Could not play number audio for ${num}:`, e);
+      if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(String(num));
+        utterance.rate = 0.9;
+        utterance.pitch = 1.2;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+  };
+
+  // Play a full song (abc or counting)
+  const playSong = (song: 'abc' | 'counting') => {
+    // Stop any currently playing song first
+    if (currentSongRef.current) {
+      currentSongRef.current.pause();
+      currentSongRef.current.currentTime = 0;
+    }
+    const path = song === 'abc'
+      ? '/assets/audio/songs/abc-song.mp3'
+      : '/assets/audio/songs/counting-song.mp3';
+    const audio = new Audio(path);
+    audio.volume = 0.85;
+    currentSongRef.current = audio;
+    audio.play().catch(err => console.warn('Could not play song:', err));
+  };
+
+  // Stop the currently playing song
+  const stopSong = () => {
+    if (currentSongRef.current) {
+      currentSongRef.current.pause();
+      currentSongRef.current.currentTime = 0;
+      currentSongRef.current = null;
     }
   };
 
@@ -208,6 +258,9 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         currentLetter,
         setCurrentLetter,
         playLetterAudio,
+        playNumberAudio,
+        playSong,
+        stopSong,
         playSuccessSound,
         playCheerSound,
         isStickerModalOpen,
